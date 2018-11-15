@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginScreen"></activity>
+        <activity android:name=".Security.Profile"></activity>
     </application>
 
 </manifest>

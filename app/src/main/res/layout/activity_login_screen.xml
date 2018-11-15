@@ -7,7 +7,7 @@
     tools:context=".LoginScreen">
 
     <TextView
-        android:id="@+id/login_text"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,10 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Password:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/pass_text"
+        app:layout_constraintEnd_toStartOf="@+id/user_text"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -59,7 +62,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user"
-        app:layout_constraintTop_toBottomOf="@+id/login_text" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <EditText
         android:id="@+id/pass_text"
