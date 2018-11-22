@@ -10,12 +10,12 @@ import android.view.MenuItem;
 import com.vigilanteyes.ua.vigilanteyes.LoginScreen;
 import com.vigilanteyes.ua.vigilanteyes.R;
 
-public class Profile extends AppCompatActivity {
+public class Report extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_report);
     }
 
     @Override
@@ -27,13 +27,13 @@ public class Profile extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
 
             case R.id.logout:
-                startActivity(new Intent(this,LoginScreen.class));
+                startActivity(new Intent(this, LoginScreen.class));
                 return true;
 
             case R.id.rota:
@@ -41,5 +41,6 @@ public class Profile extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+
     }
 }

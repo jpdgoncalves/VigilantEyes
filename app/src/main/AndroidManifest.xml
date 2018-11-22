@@ -12,16 +12,25 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginScreen"
+        <activity
+            android:name=".LoginScreen"
             android:label="Login"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Security.Profile"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Security.Profile"
             android:label="Profile"
-            android:parentActivityName=".LoginScreen"/>
-
+            android:parentActivityName=".Security.Rota" />
+        <activity
+            android:name=".Security.Rota"
+            android:label="Rota" />
+        <activity
+            android:name=".Security.Report"
+            android:label="Report"
+            android:parentActivityName=".Security.Rota"></activity>
     </application>
 
 </manifest>
