@@ -3,4 +3,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="insert_name_here">Insert name here</string>
+    <string name="insert_password_here">insert password here</string>
+    <string name="vigilanteyes">VigilantEyes</string>
+    <string name="editar">Editar</string>
+    <string name="offline">Offline</string>
+    <string name="status">Status:</string>
+    <string name="example">Example</string>
+    <string name="idade">Idade:</string>
+    <string name="nome">Nome:</string>
+    <string name="check_in">Check In</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="vigilanteyes_logo">VigilantEyes Logo</string>
 </resources>

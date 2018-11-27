@@ -11,6 +11,8 @@
         android:id="@+id/checkInButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Check In"/>
+        android:text="@string/check_in"
+        android:textColor="@color/font_color"
+        android:background="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

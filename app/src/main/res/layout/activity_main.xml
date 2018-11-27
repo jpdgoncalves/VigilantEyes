@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    style="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+    style="@style/FullScreenAppTheme"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,16 +17,17 @@
         >
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/logo"
             android:layout_width="160dp"
             android:layout_height="137dp"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:contentDescription="@string/vigilanteyes_logo" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VigilantEyes"
+            android:text="@string/vigilanteyes"
             android:textColor="@color/font_color"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,13 +36,9 @@
 
         <Button
             android:id="@+id/login_button"
-            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="Login"
-            android:textColor="@color/font_color"
-            android:textSize="14sp"
+            android:text="@string/login"
             android:onClick="toLoginScreen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
