@@ -30,7 +30,8 @@
         <activity
             android:name=".Security.Report"
             android:label="Report"
-            android:parentActivityName=".Security.Rota"></activity>
+            android:parentActivityName=".Security.Rota" />
+        <activity android:name=".Security.HomeSecurity"></activity>
     </application>
 
 </manifest>

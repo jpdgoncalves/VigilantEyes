@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingRight="12dp"
+    android:paddingLeft="12dp"
     tools:context=".Security.RotaCheckpoints">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/locations_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="AAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+        android:layout_height="match_parent">
+
+    </ListView>
 
 </FrameLayout>

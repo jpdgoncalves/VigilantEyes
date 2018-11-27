@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
+import com.vigilanteyes.ua.vigilanteyes.LockableViewPager;
 import com.vigilanteyes.ua.vigilanteyes.LoginScreen;
 import com.vigilanteyes.ua.vigilanteyes.R;
 import com.vigilanteyes.ua.vigilanteyes.SectionStatePageAdapter;
@@ -16,7 +18,7 @@ import com.vigilanteyes.ua.vigilanteyes.SectionStatePageAdapter;
 public class Rota extends AppCompatActivity {
 
     private SectionStatePageAdapter mSectionStatePageAdapter;
-    private ViewPager mViewPager;
+    private LockableViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class Rota extends AppCompatActivity {
 
         mSectionStatePageAdapter = new SectionStatePageAdapter(getSupportFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.rotaContainer);
+        mViewPager = (LockableViewPager) findViewById(R.id.rotaContainer);
 
         setupViewPager(mViewPager);
         this.setViewPager(0);
