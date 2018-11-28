@@ -23,7 +23,7 @@
     </style>
 
     <style name="ButtonStyle" parent="Base.TextAppearance.AppCompat.Button">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">#008080</item>
         <item name="android:textColor">@color/font_color</item>
         <item name="android:textSize">14sp</item>
         <item name="android:padding">12dp</item>
