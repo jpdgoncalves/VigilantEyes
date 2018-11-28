@@ -26,12 +26,15 @@
             android:parentActivityName=".Security.Rota" />
         <activity
             android:name=".Security.Rota"
-            android:label="Rota" />
+            android:label="Rota"
+            android:parentActivityName=".Security.HomeSecurity"/>
         <activity
             android:name=".Security.Report"
             android:label="Report"
-            android:parentActivityName=".Security.Rota" />
-        <activity android:name=".Security.HomeSecurity"></activity>
+            android:parentActivityName=".Security.HomeSecurity" />
+        <activity
+            android:name=".Security.HomeSecurity"
+            android:label="HomeSecurity"/>
     </application>
 
 </manifest>

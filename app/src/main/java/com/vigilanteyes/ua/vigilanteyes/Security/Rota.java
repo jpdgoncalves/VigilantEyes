@@ -54,15 +54,11 @@ public class Rota extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                startActivity(new Intent(this,HomeSecurity.class));
                 return true;
 
             case R.id.logout:
                 startActivity(new Intent(this, LoginScreen.class));
-                return true;
-
-            case R.id.rota:
-                startActivity(new Intent(this,Rota.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

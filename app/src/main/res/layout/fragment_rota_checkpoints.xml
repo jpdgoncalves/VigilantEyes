@@ -7,7 +7,6 @@
     android:paddingLeft="12dp"
     tools:context=".Security.RotaCheckpoints">
 
-    <!-- TODO: Update blank fragment layout -->
     <ListView
         android:id="@+id/locations_list"
         android:layout_width="match_parent"

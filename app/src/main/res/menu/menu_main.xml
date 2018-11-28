@@ -3,15 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.vigilanteyes.ua.vigilanteyes.Security.Profile">
+
     <item
         android:id="@+id/logout"
         android:title="Logout Item"
         android:icon="@drawable/logout_icon"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/rota"
-        android:title="Rota"
-        android:icon="@drawable/ic_rota_black_24dp"
         app:showAsAction="always" />
 
 </menu>

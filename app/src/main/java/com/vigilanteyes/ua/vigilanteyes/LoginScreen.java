@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.vigilanteyes.ua.vigilanteyes.Security.HomeSecurity;
 import com.vigilanteyes.ua.vigilanteyes.Security.Profile;
 import com.vigilanteyes.ua.vigilanteyes.Security.Rota;
 
@@ -19,7 +20,7 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     public void loginBtnPressed(View view) {
-        Intent intent = new Intent(this, Rota.class);
+        Intent intent = new Intent(this, HomeSecurity.class);
         startActivity(intent);
     }
 }
