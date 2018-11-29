@@ -1,6 +1,8 @@
 package com.vigilanteyes.ua.vigilanteyes.Security;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -33,8 +35,32 @@ public class HomeSecurity extends AppCompatActivity {
     }
 
     public void logoutBtnPressed(View view) {
-        Intent intent = new Intent(this,LoginScreen.class);
-        startActivity(intent);
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.DialogStyle);
+
+        // 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage("Tem a certeza que pretende sair de VigilantEyes?")
+                .setTitle("Logout")
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplicationContext(),LoginScreen.class);
+                        startActivity(intent);
+                    }
+                });
+
+        // 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+
+        dialog.show();
+
+
     }
 
     @Override

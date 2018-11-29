@@ -28,4 +28,10 @@
         <item name="android:textSize">14sp</item>
         <item name="android:padding">12dp</item>
     </style>
+
+    <style name="DialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:textColorPrimary">@color/font_color</item>
+    </style>
 </resources>
