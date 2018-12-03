@@ -39,6 +39,11 @@ public class LoginScreen extends AppCompatActivity {
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
 
+        if(email.length() == 0 || password.length() == 0) {
+            Toast.makeText(this, "Please fill both input fields!",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -52,7 +57,5 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
-        Intent intent = new Intent(this, HomeSecurity.class);
-        startActivity(intent);
     }
 }
