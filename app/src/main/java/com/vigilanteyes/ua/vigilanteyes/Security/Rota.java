@@ -10,12 +10,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.vigilanteyes.ua.vigilanteyes.LockableViewPager;
 import com.vigilanteyes.ua.vigilanteyes.LoginScreen;
 import com.vigilanteyes.ua.vigilanteyes.R;
 import com.vigilanteyes.ua.vigilanteyes.SectionStatePageAdapter;
 
 public class Rota extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
 
     private SectionStatePageAdapter mSectionStatePageAdapter;
     private LockableViewPager mViewPager;
@@ -25,12 +30,24 @@ public class Rota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rota);
 
+        mAuth = FirebaseAuth.getInstance();
         mSectionStatePageAdapter = new SectionStatePageAdapter(getSupportFragmentManager());
 
         mViewPager = (LockableViewPager) findViewById(R.id.rotaContainer);
 
         setupViewPager(mViewPager);
         this.setViewPager(0);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mCurrentUser = mAuth.getCurrentUser();
+        if(mCurrentUser == null) {
+            Intent intent = new Intent(this, LoginScreen.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void setupViewPager(ViewPager vp){
