@@ -31,11 +31,9 @@ public class MainActivity extends AppCompatActivity {
         if (mCurrentUser != null) {
             Intent in = new Intent(this, HomeSecurity.class);
             startActivity(in);
-            finish();
         } else {
             Intent in = new Intent(this, LoginScreen.class);
             startActivity(in);
-            finish();
         }
     }
 }

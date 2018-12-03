@@ -12,6 +12,11 @@ import android.view.MotionEvent;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vigilanteyes.ua.vigilanteyes.LockableViewPager;
 import com.vigilanteyes.ua.vigilanteyes.LoginScreen;
 import com.vigilanteyes.ua.vigilanteyes.R;
@@ -21,6 +26,8 @@ public class Rota extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mWorkSheet;
 
     private SectionStatePageAdapter mSectionStatePageAdapter;
     private LockableViewPager mViewPager;
@@ -31,12 +38,34 @@ public class Rota extends AppCompatActivity {
         setContentView(R.layout.activity_rota);
 
         mAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance();
         mSectionStatePageAdapter = new SectionStatePageAdapter(getSupportFragmentManager());
 
         mViewPager = (LockableViewPager) findViewById(R.id.rotaContainer);
 
         setupViewPager(mViewPager);
-        this.setViewPager(0);
+        updateViewPager();
+    }
+
+    private void updateViewPager() {
+        mWorkSheet = mDatabase.getReference("worksheets").child(mCurrentUser.getUid()).child("status");
+        mWorkSheet.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String status = dataSnapshot.getValue().toString();
+                if(status.equals("planned")) {
+                    Rota.this.setViewPager(0);
+                } else if (status.equals("active")) {
+                    Rota.this.setViewPager(1);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -73,11 +102,9 @@ public class Rota extends AppCompatActivity {
             case android.R.id.home:
                 startActivity(new Intent(this,HomeSecurity.class));
                 return true;
-
-            case R.id.logout:
-                startActivity(new Intent(this, LoginScreen.class));
-                return true;
         }
+
+
         return super.onOptionsItemSelected(item);
 
     }

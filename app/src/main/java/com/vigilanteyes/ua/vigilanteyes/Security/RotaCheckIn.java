@@ -1,6 +1,7 @@
 package com.vigilanteyes.ua.vigilanteyes.Security;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.vigilanteyes.ua.vigilanteyes.MainActivity;
 import com.vigilanteyes.ua.vigilanteyes.R;
 
 public class RotaCheckIn extends Fragment {
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference mDatabase;
 
     private Button btnCheckIn;
 
@@ -19,12 +30,20 @@ public class RotaCheckIn extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rota_check_in,container,false);
         btnCheckIn = (Button) view.findViewById(R.id.checkInButton);
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference("worksheets").child(mUser.getUid()).child("status");
 
         btnCheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Going to RotaCheckpoints",Toast.LENGTH_SHORT).show();
-                ((Rota)getActivity()).setViewPager(1);
+                btnCheckIn.setClickable(false);
+                mDatabase.setValue("active").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        ((Rota)getActivity()).setViewPager(1);
+                    }
+                });
             }
         });
         return view;

@@ -27,15 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/username"
+        android:text="@string/email"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/user_text"
+        app:layout_constraintEnd_toStartOf="@+id/user_text"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/pass"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -61,7 +64,7 @@
         android:hint="@string/insert_name_here"
         android:textColor="@color/font_color"
         android:textColorHint="@color/font_color"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user"
         app:layout_constraintTop_toBottomOf="@+id/login" />

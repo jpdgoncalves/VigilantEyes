@@ -36,21 +36,11 @@ public class Report extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
             case android.R.id.home:
                 startActivity(new Intent(this, HomeSecurity.class));
-                return true;
-
-            case R.id.logout:
-                startActivity(new Intent(this, LoginScreen.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

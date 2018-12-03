@@ -67,6 +67,7 @@ public class HomeSecurity extends AppCompatActivity {
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        mAuth.signOut();
                         Intent intent = new Intent(getApplicationContext(),LoginScreen.class);
                         startActivity(intent);
                     }
@@ -78,16 +79,5 @@ public class HomeSecurity extends AppCompatActivity {
         dialog.show();
 
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case R.id.logout:
-                startActivity(new Intent(this,LoginScreen.class));
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
