@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "719920056256",
+    "firebase_url": "https://vigilanteyes-2d45b.firebaseio.com",
+    "project_id": "vigilanteyes-2d45b",
+    "storage_bucket": "vigilanteyes-2d45b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719920056256:android:9655ae60a8d9ac17",
+        "android_client_info": {
+          "package_name": "com.vigilanteyes.ua.vigilanteyes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719920056256-0vq3cil7t4epr2761a9auip72cqk22lg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vigilanteyes.ua.vigilanteyes",
+            "certificate_hash": "69d1c8c1fd7c8bc1c1accb4af7d74a01fd324bf3"
+          }
+        },
+        {
+          "client_id": "719920056256-pmsib5ujh5l54tck2v0d079329qouebk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaqtN4JrfJPnxqyEtaqOUB1bMMa58wywY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719920056256-pmsib5ujh5l54tck2v0d079329qouebk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
