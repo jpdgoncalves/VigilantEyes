@@ -8,15 +8,32 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.vigilanteyes.ua.vigilanteyes.LoginScreen;
 import com.vigilanteyes.ua.vigilanteyes.R;
 
 public class HomeSecurity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_security);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mCurrentUser = mAuth.getCurrentUser();
+        if(mCurrentUser == null) {
+            Intent intent = new Intent(this, LoginScreen.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void rotaBtnPressed(View view) {
