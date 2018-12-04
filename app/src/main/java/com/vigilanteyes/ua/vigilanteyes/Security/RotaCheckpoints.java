@@ -3,6 +3,7 @@ package com.vigilanteyes.ua.vigilanteyes.Security;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -46,6 +49,8 @@ public class RotaCheckpoints extends Fragment {
     private DatabaseReference mWorksheet;
     private DatabaseReference mRoute;
 
+    private int checkpointCounter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rota_checkpoints, container, false);
@@ -55,19 +60,24 @@ public class RotaCheckpoints extends Fragment {
         locations.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(),"ola",Toast.LENGTH_SHORT).show();
+                if(position == 0) {
+                    updateCheckpointIndex();
+                }
             }
         });
 
         mDatabase = FirebaseDatabase.getInstance();
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        mWorksheet = mDatabase.getReference("worksheets").child(mCurrentUser.getUid()).child("route");
+        mWorksheet = mDatabase.getReference("worksheets").child(mCurrentUser.getUid());
 
         mWorksheet.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                addCheckPoints(dataSnapshot.getValue().toString());
+                checkpointCounter = Integer.parseInt(dataSnapshot.child("checkpoint_counter").getValue().toString());
+                if(checkpoints.size() == 0) {
+                    addCheckPoints(dataSnapshot.child("route").getValue().toString());
+                }
             }
 
             @Override
@@ -80,6 +90,19 @@ public class RotaCheckpoints extends Fragment {
         return view;
     }
 
+    private void updateCheckpointIndex() {
+        mWorksheet.child("checkpoint_counter").setValue(checkpointCounter+1).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    checkpointCounter += 1;
+                    checkpoints.remove(0);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
     private void addCheckPoints(String route_id) {
 
         mRoute = mDatabase.getReference("routes").child(route_id).child("checkpoints");
@@ -88,7 +111,10 @@ public class RotaCheckpoints extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String checkpoint = dataSnapshot.getValue().toString();
-                addCheckPoint(checkpoint);
+                int checkpointcounter = Integer.parseInt(dataSnapshot.getKey());
+                if(checkpointCounter < checkpointcounter) {
+                    addCheckPoint(checkpoint);
+                }
             }
 
             @Override
