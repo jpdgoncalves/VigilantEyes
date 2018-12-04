@@ -20,8 +20,7 @@
             android:contentDescription="@string/profile_picture"
             android:maxWidth="180dp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/nophoto"
-            tools:srcCompat="@drawable/nophoto" />
+             />
 
         <TextView
             android:id="@+id/name"
