@@ -82,6 +82,7 @@ public class Rota extends AppCompatActivity {
     private void setupViewPager(ViewPager vp){
         mSectionStatePageAdapter.addFragment(new RotaCheckIn());
         mSectionStatePageAdapter.addFragment(new RotaCheckpoints());
+        mSectionStatePageAdapter.addFragment(new RotaCheckOut());
         vp.setAdapter(mSectionStatePageAdapter);
     }
 

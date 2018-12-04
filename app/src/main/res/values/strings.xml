@@ -13,6 +13,7 @@
     <string name="idade">Idade:</string>
     <string name="nome">Nome:</string>
     <string name="check_in">Check In</string>
+    <string name="check_out">Check Out</string>
     <string name="profile_picture">Profile picture</string>
     <string name="vigilanteyes_logo">VigilantEyes Logo</string>
     <string name="email">Email:</string>
