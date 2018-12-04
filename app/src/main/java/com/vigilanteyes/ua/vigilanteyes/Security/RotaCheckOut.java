@@ -40,7 +40,8 @@ public class RotaCheckOut extends Fragment {
                 mDatabase.setValue("finished").addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        startActivity(new Intent(getActivity(),HomeSecurity.class));
+                        getActivity().finish();
+
                     }
                 });
             }

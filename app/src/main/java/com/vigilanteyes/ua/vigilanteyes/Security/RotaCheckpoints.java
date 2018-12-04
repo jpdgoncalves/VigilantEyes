@@ -95,10 +95,14 @@ public class RotaCheckpoints extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    checkpointCounter += 1;
                     checkpoints.remove(0);
                     adapter.notifyDataSetChanged();
+                    if (checkpoints.size() == 0){
+                        ((Rota)getActivity()).setViewPager(2);
+                    }
                 }
+
+
             }
         });
     }
