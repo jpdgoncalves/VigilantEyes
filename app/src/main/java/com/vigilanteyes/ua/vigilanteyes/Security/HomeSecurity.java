@@ -59,7 +59,7 @@ public class HomeSecurity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String status = dataSnapshot.child("status").getValue().toString();
                 if(status.equals("finished")){
-                    Toast.makeText(HomeSecurity.this,"Não há roats disponíveis!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeSecurity.this,"Não há rotas disponíveis!",Toast.LENGTH_SHORT).show();
                 } else{
                     Intent intent = new Intent(HomeSecurity.this,Rota.class);
                     startActivity(intent);

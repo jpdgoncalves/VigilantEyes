@@ -12,10 +12,9 @@
 
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/vigilant_eyes_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/vigilant_eyes_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -42,19 +41,19 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Security.Profile"
-            android:label="Profile"
+            android:label="@string/perfil"
             android:parentActivityName=".Security.Rota" />
         <activity
             android:name=".Security.Rota"
-            android:label="Rota"
+            android:label="@string/rota"
             android:parentActivityName=".Security.HomeSecurity"/>
         <activity
             android:name=".Security.Report"
-            android:label="Report"
+            android:label="@string/reportar"
             android:parentActivityName=".Security.HomeSecurity" />
         <activity
             android:name=".Security.HomeSecurity"
-            android:label="HomeSecurity"/>
+            android:label="Home"/>
     </application>
 
 </manifest>

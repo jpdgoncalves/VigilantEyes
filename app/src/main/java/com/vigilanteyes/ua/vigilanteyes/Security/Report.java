@@ -136,7 +136,6 @@ public class Report extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 startActivity(new Intent(this, HomeSecurity.class));

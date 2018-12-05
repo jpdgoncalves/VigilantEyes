@@ -11,7 +11,7 @@
         android:background="@drawable/btn_check_out"
         android:id="@+id/checkOutButton"
         android:gravity="center"
-        android:textSize="30dp"
+        android:textSize="@dimen/text_giant_btn_size"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="40dp"

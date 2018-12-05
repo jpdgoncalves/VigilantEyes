@@ -1,4 +1,4 @@
-package com.vigilanteyes.ua.vigilanteyes.Security;
+package com.vigilanteyes.ua.vigilanteyes;
 
 import android.content.Context;
 

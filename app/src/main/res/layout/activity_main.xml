@@ -13,14 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         >
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="160dp"
             android:layout_height="137dp"
-            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/vigilant_eyes_circle"
             android:contentDescription="@string/vigilanteyes_logo" />
 
         <TextView
@@ -29,7 +30,8 @@
             android:layout_height="wrap_content"
             android:text="@string/vigilanteyes"
             android:textColor="@color/font_color"
-            android:textSize="36sp"
+            android:textSize="@dimen/title_size"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
@@ -40,6 +42,7 @@
             android:layout_height="wrap_content"
             android:text="@string/login"
             android:onClick="toLoginScreen"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />

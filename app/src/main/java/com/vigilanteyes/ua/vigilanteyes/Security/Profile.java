@@ -37,6 +37,7 @@ public class Profile extends AppCompatActivity {
     private ImageView profileImage;
     private TextView userName;
     private TextView userIdade;
+    private TextView userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class Profile extends AppCompatActivity {
         profileImage = (ImageView) findViewById(R.id.profile_picture);
         userName = (TextView) findViewById(R.id.name_field);
         userIdade = (TextView) findViewById(R.id.age_field);
+        userEmail = (TextView) findViewById(R.id.email_field);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -67,8 +69,9 @@ public class Profile extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String name = dataSnapshot.child("name").getValue().toString();
                     String age = dataSnapshot.child("idade").getValue().toString();
+                    String email = dataSnapshot.child("email").getValue().toString();
                     String photoURL = dataSnapshot.child("photoURL").getValue().toString();
-                    Profile.this.setupProfile(name,age,photoURL);
+                    Profile.this.setupProfile(name,age,email,photoURL);
                 }
 
                 @Override
@@ -79,9 +82,10 @@ public class Profile extends AppCompatActivity {
         }
     }
 
-    private void setupProfile(String name,String age,String photoURL) {
+    private void setupProfile(String name,String age,String email,String photoURL) {
         userName.setText(name);
         userIdade.setText(age);
+        userEmail.setText(email);
         mPfp = FirebaseStorage.getInstance().getReferenceFromUrl(photoURL);
         Log.d("DEBUGGING",photoURL);
         Glide.with(this).load(mPfp).into(profileImage);
