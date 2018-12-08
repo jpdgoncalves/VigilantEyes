@@ -40,7 +40,7 @@ public class LoginScreen extends AppCompatActivity {
         String password = passwordInput.getText().toString();
 
         if(email.length() == 0 || password.length() == 0) {
-            Toast.makeText(this, "Please fill both input fields!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Por favor preencha ambos os campos!",Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -52,7 +52,7 @@ public class LoginScreen extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(LoginScreen.this, "The email or password are wrong!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginScreen.this, "O email ou a password estão errados!",Toast.LENGTH_LONG).show();
                 }
             }
         });

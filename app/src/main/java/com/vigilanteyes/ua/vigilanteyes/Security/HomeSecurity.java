@@ -40,6 +40,7 @@ public class HomeSecurity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         btnRota = (Button) findViewById(R.id.btn_rota);
+        mWorksheet = mDatabase.getReference("worksheets").child(mCurrentUser.getUid());
     }
 
     @Override
@@ -53,7 +54,6 @@ public class HomeSecurity extends AppCompatActivity {
     }
 
     public void rotaBtnPressed(View view) {
-        mWorksheet = mDatabase.getReference("worksheets").child(mCurrentUser.getUid());
         mWorksheet.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -74,8 +74,23 @@ public class HomeSecurity extends AppCompatActivity {
     }
 
     public void reportarBtnPressed(View view) {
-        Intent intent = new Intent(this,Report.class);
-        startActivity(intent);
+        mWorksheet.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String status = dataSnapshot.child("status").getValue().toString();
+                if(status.equals("finished") || status.equals("planned")){
+                    Toast.makeText(HomeSecurity.this,"Por favor faça check-in na rota antes de reportar um incidente!",Toast.LENGTH_SHORT).show();
+                } else{
+                    Intent intent = new Intent(HomeSecurity.this,Report.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void perfilBtnPressed(View view) {
