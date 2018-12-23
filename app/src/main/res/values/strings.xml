@@ -27,4 +27,7 @@
     <string name="adicionar_foto">Adicionar foto</string>
     <string name="submeter">Submeter</string>
     <string name="foto_report">Foto report</string>
+    <string name="rotas">Rotas</string>
+    <string name="segurancas">Segurancas</string>
+    <string name="relatorios">Relatorios</string>
 </resources>
